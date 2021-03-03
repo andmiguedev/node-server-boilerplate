@@ -1,0 +1,4 @@
+{
+  "*.+(ts|tsx)": ["eslint"],
+  "**/*.+(ts|tsx)": ["prettier --write", "gid add"]
+}
