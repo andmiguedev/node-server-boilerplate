@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "eslint-config-prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "strict": ["error", "never"]
+  },
+  "env": {
+    "node": true
+  }
+}
