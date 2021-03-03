@@ -1,16 +1,12 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-import express from 'express';
 
+const app = require('../config/express');
 const { port } = require('../utils/environment');
 
 export class Server {
   public setupNodeServer() {
-    const server = express();
-
     createServer((req: IncomingMessage, res: ServerResponse) => {
-      server.use(express.json());
-
       // http://localdomain/anyUrlpassed
       console.log(`Incoming Request Type: ${req.method}`);
       const baseUrl = Url.getBasePathUrl(req.url);
@@ -18,11 +14,11 @@ export class Server {
       res.end();
     });
 
-    server.use('/', (req, res) => {
+    app.use('/', (req, res) => {
       res.send('Checking Root Path of Server');
     });
 
-    server.listen(port, () => {
+    app.listen(port, () => {
       console.log(`Starting Node server on port ${port}`);
     });
   }
