@@ -1,7 +1,8 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
-
 import express from 'express';
+
+const { port } = require('../utils/environment');
 
 export class Server {
   public setupNodeServer() {
@@ -21,8 +22,8 @@ export class Server {
       res.send('Checking Root Path of Server');
     });
 
-    server.listen(8080, () => {
-      console.log(`Starting Node server on port 8080`);
+    server.listen(port, () => {
+      console.log(`Starting Node server on port ${port}`);
     });
   }
 }
