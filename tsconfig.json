@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "target": "es2017",
+    "target": "es2019",
     "strictNullChecks": true,
     "alwaysStrict": true,
     "outDir": "dist",
     "rootDir": "src",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "sourceMap": true
   },
   "exclude": ["node_modules"]
 }
