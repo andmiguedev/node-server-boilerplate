@@ -1,22 +1,22 @@
 import express, { Request, Response } from 'express';
-import { adminController } from '../controllers/index';
+import { usersController } from '../controllers/index';
 
 export const router = express.Router({
   strict: true,
 });
 
 router.post('/', (req: Request, res: Response) => {
-  adminController.create(req, res);
+  usersController.create(req, res);
 });
 
 router.get('/', (req: Request, res: Response) => {
-  adminController.read(req, res);
+  usersController.read(req, res);
 });
 
 router.patch('/', (req: Request, res: Response) => {
-  adminController.update(req, res);
+  usersController.update(req, res);
 });
 
 router.delete('/', (req: Request, res: Response) => {
-  adminController.delete(req, res);
+  usersController.delete(req, res);
 });

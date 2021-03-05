@@ -1,3 +1,3 @@
-import { router as adminRoutes } from './adminRoutes';
+import { router as usersRoutes } from './userRoutes';
 
-export { adminRoutes };
+export { usersRoutes };

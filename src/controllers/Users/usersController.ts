@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { CRUDController } from './crudController';
+import { CRUDController } from '../Base/crudController';
 
-export class AdminController extends CRUDController {
+export class UsersController extends CRUDController {
   public create(req: Request<import('express-serve-static-core').ParamsDictionary>, res: Response): void {
     throw new Error('Method not implemented.');
   }

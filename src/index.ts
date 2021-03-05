@@ -1,29 +1,13 @@
-import express from 'express';
-import { Request, Response } from 'express';
-import bodyParser from 'body-parser';
+import { server } from './core/expressServer';
+import { usersRoutes } from './routes/index';
 
-const app: express.Application = express();
+import registerMiddlewares from './middlewares';
 
-import { adminRoutes } from './routes/index';
+async function start() {
+  registerMiddlewares(server);
+  server.listen();
 
-const logger = require('./server/logger');
-const local = require('./utils/environment');
+  server.use('/users', usersRoutes);
+}
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
-
-// API Routes
-// app.use('/', (req: Request, res: Response) => {
-//   res.send({
-//     message: 'GET /welcome to node server',
-//   });
-// });
-
-app.use('', adminRoutes);
-
-app.listen(local.port, () => {
-  logger.info(`Starting Node server at http://${local.host}:${local.port}`);
-});
+start();
