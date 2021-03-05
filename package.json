@@ -44,6 +44,7 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "helmet": "^4.4.1",
+    "lightship": "^6.6.1",
     "winston": "^3.3.3"
   }
 }
