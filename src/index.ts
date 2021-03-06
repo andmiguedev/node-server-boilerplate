@@ -1,14 +1,18 @@
+import http from 'http';
 import { server } from './core/expressServer';
-import { usersRoutes } from './routes/index';
+import { rootRouter, adminRouter } from './routes/index';
 
 import registerMiddlewares from './middlewares/index';
 
 async function start() {
-  registerMiddlewares(server);
-  
-  server.listen();
+  await http.createServer((req, res) => {
+    registerMiddlewares(server);
+    server.listen();
+  });
 
-  server.use('/users', usersRoutes);
+  server.all('/', (req, res) => res.redirect('/v1'));
+  server.use('/v1', rootRouter);
+  server.use('/v1/admin', adminRouter);
 }
 
 start();

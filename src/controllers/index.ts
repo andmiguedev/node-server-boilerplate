@@ -1,4 +1,5 @@
-import { UsersController } from './Users/usersController';
-const usersController = new UsersController();
+export { rootController } from './Base/rootController';
 
-export { usersController };
+import { AdminController } from './Admin/adminController';
+const adminController = new AdminController();
+export { adminController };

@@ -1,3 +1,2 @@
-import { router as usersRoutes } from './userRoutes';
-
-export { usersRoutes };
+export { rootRouter } from './root';
+export { adminRouter } from './admin';
