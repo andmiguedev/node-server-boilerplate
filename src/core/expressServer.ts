@@ -4,6 +4,7 @@ const { createLightship } = require('lightship');
 // custom middlewares
 const logger = require('../server/logger');
 const local = require('../utils/environment');
+// const mongo = require('../databases/mongo');
 
 const server: express.Application = express();
 
@@ -16,6 +17,9 @@ server
     // Lightship default state is "SERVER_IS_NOT_READY". Therefore, you must signal
     // that the server is now ready to accept connections.
     lightship.signalReady();
+
+    // Use it to connect to Mongodb
+    // mongo.connection();
   })
   .on('error', () => {
     lightship.shutdown();

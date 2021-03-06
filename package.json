@@ -45,6 +45,7 @@
     "express-basic-auth": "^1.2.0",
     "helmet": "^4.4.1",
     "lightship": "^6.6.1",
+    "mongoose": "^5.11.19",
     "winston": "^3.3.3"
   }
 }

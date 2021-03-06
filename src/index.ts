@@ -1,7 +1,7 @@
 import http from 'http';
+
 import { server } from './core/expressServer';
 import { rootRouter, adminRouter } from './routes/index';
-
 import registerMiddlewares from './middlewares/index';
 
 async function start() {
