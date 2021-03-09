@@ -1,11 +1,13 @@
-import http from 'http';
+const http = require('https');
 
 import { server } from './core/expressServer';
 import { rootRouter, adminRouter } from './routes/index';
 import registerMiddlewares from './middlewares/index';
 
+// To allow SSL Certificates, pass the following config
+// { key, cert }, under options params
 async function start() {
-  await http.createServer((req, res) => {
+  http.createServer(() => {
     registerMiddlewares(server);
     server.listen();
   });

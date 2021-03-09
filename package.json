@@ -7,7 +7,7 @@
   "author": "Miguel Gomez <mgomez.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && npm run start",
     "start": "cross-env NODE_ENV=production nodemon src/index.ts",
     "dev": "cross-env NODE_ENV=development nodemon src/index.ts",
     "lint:ignore": "eslint --ignore-path .gitignore",
@@ -46,6 +46,7 @@
     "helmet": "^4.4.1",
     "lightship": "^6.6.1",
     "mongoose": "^5.11.19",
+    "node-simple-cert": "0.0.1",
     "winston": "^3.3.3"
   }
 }
