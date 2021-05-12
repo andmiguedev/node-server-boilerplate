@@ -16,4 +16,13 @@ const logger = winston.createLogger({
   ],
 });
 
+export const handleErrors = (server) => {
+  if (server) {
+    server.maintenanceMode(() => {
+      logger.info('Server is currently under maintenance. Contact Administrators for server availability.');
+      process.exit(1);
+    });
+  }
+}
+
 module.exports = logger;

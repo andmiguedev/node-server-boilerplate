@@ -1,15 +1,20 @@
 import express from 'express';
+import { handleErrors } from './../server/logger';
+
 const { createLightship } = require('lightship');
 
 // custom middlewares
 const logger = require('../server/logger');
 const local = require('../utils/environment');
-// const mongo = require('../databases/mongo');
-
 const server: express.Application = express();
 
 // Lightship will start a HTTP service on port 9000
 const lightship = createLightship();
+
+const handleFailedRequests = (serverError) => {
+  logger.error(`Unexpected error has occured. Error: ${serverError}`);
+  handleErrors(server);
+}
 
 server
   .listen(local.port, () => {
@@ -22,6 +27,8 @@ server
     // mongo.connection();
   })
   .on('error', () => {
+    process.on('uncaughtException', handleFailedRequests);
+    process.on('unhandledRejection', handleFailedRequests);
     lightship.shutdown();
   });
 
