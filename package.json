@@ -45,6 +45,7 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "helmet": "^4.4.1",
+    "http-status": "^1.5.0",
     "lightship": "^6.6.1",
     "mongoose": "^5.11.19",
     "node-simple-cert": "0.0.1",

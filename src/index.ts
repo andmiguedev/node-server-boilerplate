@@ -1,3 +1,4 @@
+import { userRouter } from './routes/user';
 const http = require('https');
 
 import { server } from './core/expressServer';
@@ -14,6 +15,7 @@ async function start() {
 
   server.all('/', (req, res) => res.redirect('/v1'));
   server.use('/v1', rootRouter);
+  server.use('/v1/user', userRouter);
   server.use('/v1/admin', adminRouter);
 }
 
