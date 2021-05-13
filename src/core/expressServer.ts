@@ -1,5 +1,5 @@
 import express from 'express';
-import { handleErrors } from './../server/logger';
+import { handleMaintenanceMode } from './../server/logger';
 
 const { createLightship } = require('lightship');
 
@@ -13,7 +13,7 @@ const lightship = createLightship();
 
 const handleFailedRequests = (serverError) => {
   logger.error(`Unexpected error has occured. Error: ${serverError}`);
-  handleErrors(server);
+  handleMaintenanceMode(server, serverError);
 }
 
 server
