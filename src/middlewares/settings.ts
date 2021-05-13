@@ -3,9 +3,14 @@ const helmet = require('helmet');
 const basicAuth = require('express-basic-auth');
 const bodyParser = require('body-parser');
 
+const { handleInternalErrors, handleExternalErrors } = require('../server/errors');
+
 export default (server) => {
   server.use(cors());
   server.use(helmet());
+
+  server.use(handleInternalErrors);
+  server.use(handleExternalErrors);
 
   server.use(
     basicAuth({

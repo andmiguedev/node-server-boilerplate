@@ -1,5 +1,9 @@
 {
-  "extends": ["eslint:recommended", "airbnb-base", "eslint-config-prettier"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "eslint-config-prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
@@ -8,7 +12,10 @@
     }
   },
   "rules": {
-    "strict": ["error", "never"],
+    "strict": [
+      "error",
+      "never"
+    ],
     "no-console": "error"
   },
   "env": {
