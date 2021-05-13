@@ -1,5 +1,8 @@
+const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
+const config = require('../utils/environment');
+
 const basicAuth = require('express-basic-auth');
 const bodyParser = require('body-parser');
 
@@ -21,6 +24,11 @@ export default (server) => {
       challenge: true,
     })
   );
+
+  if (config.env === 'production') {
+    server.use(morgan.setSuccessfulResponse);
+    server.use(morgan.setDeniedResponse);
+  }
 
   // parse application/x-www-form-urlencoded
   server.use(bodyParser.urlencoded({ extended: false }));
